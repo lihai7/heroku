@@ -12,6 +12,7 @@ def parse_btc_to_usd():
     r = requests.get(url, headers=headers)
     page = html.fromstring(r.text)
     take_btc = page.xpath('string(//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1])')
+
     return take_btc
 parse_btc_to_usd()
 
@@ -24,7 +25,9 @@ def parse_weather():
     r = requests.get(url, headers=headers)
     page = html.fromstring(r.text)
     weather_now = page.xpath('string(//*[@id="wob_tm"])')
+    
     return(weather_now)
+parse_weather()
 
 def parse_chance_of_rain():
     headers = {
@@ -37,9 +40,9 @@ def parse_chance_of_rain():
     chance_of_rain = page.xpath('string(//*[@id="wob_pp"])')
     chance_of_rain = chance_of_rain.replace('-','')  # Убираем "-"
     chance_of_rain = re.sub(r'\s','',chance_of_rain) # Убираем лишние пробелы
+
     return(chance_of_rain)
 parse_chance_of_rain()
-print(re.__version__)
 ###
 #
 bot = telebot.TeleBot('1159436936:AAG1FkCcfb6npHdRyYluwzLMdMGRfraIzhg')
