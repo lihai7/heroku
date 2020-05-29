@@ -21,10 +21,10 @@ def parse_weather():
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
                           '(KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36'
         }
-    url = 'https://google.com/search?q=погода+днепр&oq=погода+днепр'
+    url = 'https://bit.ly/2Maoc13'
     r = requests.get(url, headers=headers)
     page = html.fromstring(r.text)
-    weather_now = page.xpath('string(/html/body/div[1]/div[6]/main/div[1]/div/section/div/div[2]/div[1]/span)')
+    weather_now = page.xpath('string(/html/body/div[6]/div[2]/div[9]/div[1]/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div/div[1]/span[1])')
    
     return(weather_now)
 parse_weather()
