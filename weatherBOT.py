@@ -8,10 +8,10 @@ def parse_btc_to_usd():
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
                       '(KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36'
     }
-    url = 'https://www.google.com/search?sxsrf=ALeKk03xACIxe2MEXHC1GZAhCfv9hAFW8Q%3A1590711331143&ei=I1TQXuymCMKimwWC_LToCQ&q=%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0+%D0%B4%D0%BD%D0%B5%D0%BF%D1%80+%D1%86%D0%B5%D0%BB%D1%8C%D1%81%D0%B8%D0%B9&oq=%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0+%D0%B4%D0%BD%D0%B5%D0%BF%D1%80+%D1%86%D0%B5%D0%BB%D1%8C%D1%81%D0%B8%D0%B9&gs_lcp=CgZwc3ktYWIQAzIHCAAQRhCAAjoECAAQRzoMCCMQJxCdAhBGEIACOgQIIxAnOgUIABCDAToCCAA6BggAEBYQHlCaiQFY75wBYLKeAWgAcAF4AIABmQKIAZAIkgEFMS42LjGYAQCgAQGqAQdnd3Mtd2l6&sclient=psy-ab&ved=0ahUKEwisxNS-5dfpAhVC0aYKHQI-DZ0Q4dUDCAw&uact=5'
+    url = 'https://bit.ly/36w63nL'
     r = requests.get(url, headers=headers)
     page = html.fromstring(r.text)
-    take_btc = page.xpath('string(//*[@id="wob_tm"])')
+    take_btc = page.xpath('string(//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1])')
 
     return take_btc
 parse_btc_to_usd()
@@ -34,7 +34,7 @@ def parse_chance_of_rain():
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
                           '(KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36'
         }
-    url = 'https://google.com/search?q=погода+днепр&oq=погода+днепр'
+    url = 'https://www.google.com/search?sxsrf=ALeKk03xACIxe2MEXHC1GZAhCfv9hAFW8Q%3A1590711331143&ei=I1TQXuymCMKimwWC_LToCQ&q=%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0+%D0%B4%D0%BD%D0%B5%D0%BF%D1%80+%D1%86%D0%B5%D0%BB%D1%8C%D1%81%D0%B8%D0%B9&oq=%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0+%D0%B4%D0%BD%D0%B5%D0%BF%D1%80+%D1%86%D0%B5%D0%BB%D1%8C%D1%81%D0%B8%D0%B9&gs_lcp=CgZwc3ktYWIQAzIHCAAQRhCAAjoECAAQRzoMCCMQJxCdAhBGEIACOgQIIxAnOgUIABCDAToCCAA6BggAEBYQHlCaiQFY75wBYLKeAWgAcAF4AIABmQKIAZAIkgEFMS42LjGYAQCgAQGqAQdnd3Mtd2l6&sclient=psy-ab&ved=0ahUKEwisxNS-5dfpAhVC0aYKHQI-DZ0Q4dUDCAw&uact=5'
     r = requests.get(url, headers=headers)
     page = html.fromstring(r.text)
     chance_of_rain = page.xpath('string(//*[@id="wob_pp"])')
