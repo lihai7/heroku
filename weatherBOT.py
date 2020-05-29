@@ -24,7 +24,7 @@ def parse_weather():
     url = 'https://bit.ly/2Maoc13'
     r = requests.get(url, headers=headers)
     page = html.fromstring(r.text)
-    weather_now = page.xpath('string()')
+    weather_now = page.xpath('string(//*[@id="wob_tm"])')
    
     return(weather_now)
 parse_weather()
