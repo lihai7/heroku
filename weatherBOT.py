@@ -24,8 +24,8 @@ def parse_weather():
     url = 'https://google.com/search?q=погода+днепр&oq=погода+днепр'
     r = requests.get(url, headers=headers)
     page = html.fromstring(r.text)
-    weather_now = page.xpath('string(//*[@id="wob_tm"])')
-    
+    weather_now = page.xpath('string(/html/body/div[1]/div[6]/main/div[1]/div/section/div/div[2]/div[1]/span)')
+   
     return(weather_now)
 parse_weather()
 
@@ -61,7 +61,7 @@ def welcome(message):
 @bot.message_handler(content_types=['text'])
 def weather(message):
     if message.text == 'Узнать погоду':
-        bot.send_message(message.chat.id, (f'Сейчас на улице {parse_weather()} градусов.\nВероятность осадков {parse_chance_of_rain()}%'))
+        bot.send_message(message.chat.id, (f'Сейчас на улице {parse_weather()}.\nВероятность осадков {parse_chance_of_rain()}%'))
     if message.text == 'Узнать курс биткоина':
         bot.send_message(message.chat.id, (f'1 BTC={parse_btc_to_usd()}USD'))
 #Bot srart
