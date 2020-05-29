@@ -61,7 +61,7 @@ def welcome(message):
 @bot.message_handler(content_types=['text'])
 def weather(message):
     if message.text == 'Узнать погоду':
-        bot.send_message(message.chat.id, (f'Сейчас на улице {parse_weather()}℃ .\nВероятность осадков {parse_chance_of_rain()}'))
+        bot.send_message(message.chat.id, (f'Сейчас на улице {parse_weather()}℃\nВероятность осадков {parse_chance_of_rain()}'))
     if message.text == 'Узнать курс биткоина':
         bot.send_message(message.chat.id, (f'1 BTC={parse_btc_to_usd()}USD'))
 #Bot srart
